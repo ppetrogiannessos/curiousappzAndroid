@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_verification"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context="com.curiousappz.www.carky_test.Verification">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/home_icon"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+
+            />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:padding="12dp"
+            android:src="@mipmap/carky_logo"
+            android:layout_weight="6"
+            />
+        <ImageButton
+            android:layout_width="0dp"
+            android:layout_margin="10dp"
+            android:layout_height="30dp"
+            android:background="@mipmap/route_icon"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:layout_height="90dp"
+        android:layout_width="match_parent"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@mipmap/flow_img"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="200dp"
+        android:paddingLeft="80dp"
+        android:paddingRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <EditText
+            android:id="@+id/et1"
+            android:layout_width="35dp"
+            android:layout_height="45dp"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:nextFocusForward="@+id/et2"
+            android:maxLength="1"/>
+        <EditText
+            android:id="@+id/et2"
+            android:layout_width="35dp"
+            android:layout_height="45dp"
+            android:textAlignment="center"
+            android:imeOptions="actionNext"
+            android:nextFocusForward="@+id/et3"
+            android:inputType="number"
+            android:maxLength="1"/>
+        <EditText
+            android:id="@+id/et3"
+            android:layout_width="35dp"
+            android:layout_height="45dp"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:maxLength="1"/>
+        <ImageView
+            android:layout_margin="8dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@mipmap/line"/>
+        <EditText
+            android:id="@+id/et4"
+            android:layout_width="35dp"
+            android:layout_height="45dp"
+            android:textAlignment="center"
+            android:inputType="number"
+            android:maxLength="1"/>
+        <EditText
+            android:id="@+id/et5"
+            android:layout_width="35dp"
+            android:layout_height="45dp"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:maxLength="1"/>
+        <EditText
+            android:id="@+id/et6"
+            android:layout_width="35dp"
+            android:layout_height="45dp"
+            android:textAlignment="center"
+            android:inputType="number"
+            android:maxLength="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:weightSum="1">
+        <TextView
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="70dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="13sp"
+            android:text="Enter The Code Send To +30 693 547 6981"/>
+
+        <Button
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="140dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resend Code" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Problem receiveing the code ?"
+            android:textColor="#00ffff"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="500dp"
+        >
+        <Button
+            android:id="@+id/botp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="otp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:background="#666666"
+            android:text="SUBMIT VERIFICATION CODE "
+            android:textColor="#ffffff"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

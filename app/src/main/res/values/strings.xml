@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Carky_Test</string>
+    <string name="car_prompt">NAME</string>
+
+    <string-array name="Car_Name">
+        <item name="Maruti" />
+        <item name="BMW" />
+        <item name="Honda" />
+    </string-array>
+</resources>
