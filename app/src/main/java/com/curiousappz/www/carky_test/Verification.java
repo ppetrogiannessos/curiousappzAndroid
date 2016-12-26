@@ -147,13 +147,6 @@ return false;
     void loginUser(String username , String password, String grant_type )
     {
         String data;
-//        String email = "test13@test.com";
-//        String password = "123456abc";
-//        String confirmPassword = "123456abc";
-//        String firstname = "test13";
-//        String surname = "m";
-//        String contact = "1234567891";
-//        String address = "Indore";
         try {
             data = URLEncoder.encode("username", "UTF-8") + "=" + username;
             data += "&" + URLEncoder.encode("password", "UTF-8") + "=" + password;
@@ -172,8 +165,8 @@ return false;
     public void serviceResponse(String result,int responsecode) {
         if (responsecode == 200) {
             Log.i("clicks", "You Clicked B1");
-//            Intent i = new Intent(this, Step_2.class);
-//            startActivity(i);
+         Intent i = new Intent(this, Step_2.class);
+           startActivity(i);
             Toast.makeText(this,"Successfully Registerd" ,Toast.LENGTH_LONG).show();
         }
         else

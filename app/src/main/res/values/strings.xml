@@ -1,10 +1,34 @@
 <resources>
+    <string name="ok">ok</string>
+    <string name="cancel">cancel</string>
     <string name="app_name">Carky_Test</string>
-    <string name="car_prompt">NAME</string>
 
-    <string-array name="Car_Name">
-        <item name="Maruti" />
-        <item name="BMW" />
-        <item name="Honda" />
+    <string name="car_prompt">Make</string>
+    <string-array name="car_array">
+        <item>Fiat</item>
+        <item>BMW</item>
+        <item>Maruti</item>
+    </string-array>
+
+    <string-array name="model_array">
+        <item>123</item>
+        <item>456</item>
+        <item>789</item>
+    </string-array>
+
+    <string-array name="transmission_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="year_array">
+        <item>Fiat</item>
+        <item>BMW</item>
+        <item>Maruti</item>
+    </string-array>
+
+    <string-array name="fuel_array">
+        <item>1</item>
+        <item>2</item>
     </string-array>
 </resources>

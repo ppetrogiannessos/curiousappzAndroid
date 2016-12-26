@@ -8,7 +8,6 @@
     android:background="#ffffff"
     tools:context="com.curiousappz.www.carky_test.MainActivity">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -134,17 +133,12 @@
             android:layout_marginLeft="10dp"
             android:inputType="textPassword" />
     </LinearLayout>
-
-    <LinearLayout
+    <ImageButton
+        android:layout_alignParentBottom="true"
+        android:foregroundGravity="bottom"
+        android:id="@+id/bnext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="500dp">
-
-            <ImageButton
-                android:id="@+id/bnext"
-                android:src="@mipmap/next_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="next"/>
-    </LinearLayout>
+        android:onClick="next"
+        android:background="@mipmap/next_button"/>
 </RelativeLayout>

@@ -1,9 +1,11 @@
 package com.curiousappz.www.carky_test;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Step_3 extends AppCompatActivity {
+public class Step_3 extends Activity
+{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

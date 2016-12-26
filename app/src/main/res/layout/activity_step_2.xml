@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_step_2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -33,6 +34,7 @@
             android:background="@mipmap/route_icon"
             android:layout_weight="1"/>
     </LinearLayout>
+
     <LinearLayout
         android:layout_marginTop="50dp"
         android:layout_height="90dp"
@@ -40,14 +42,192 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         >
-
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:background="@mipmap/flow_img"/>
+            android:background="@mipmap/flow_img_3"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_marginTop="140dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<ImageView
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+    android:background="@mipmap/make_icon"
+    android:layout_marginTop="30dp"
+    android:layout_marginLeft="10dp"/>
 
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+    android:id="@+id/car_spinner"
+            android:hint="MAKE"
+            android:textColorHint="#c0c0c0"
+    android:layout_width="100dp"
+    android:layout_height="50dp"
+    android:layout_marginTop="30dp"
+    android:layout_marginLeft="20dp" />
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@mipmap/model_icon"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"/>
+        <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+            android:id="@+id/model_spinner"
+            android:hint="Model"
+            android:textColorHint="#c0c0c0"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp" />
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@mipmap/transmission_icon"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"/>
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/transmission_spinner"
+                android:hint="Transmission"
+                android:textColorHint="#c0c0c0"
+                android:textSize="15sp"
+                android:layout_width="110dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:textAlignment="center"
+                android:layout_marginLeft="15dp"
+               />
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@mipmap/year_icon"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"/>
+      <!--      <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/year_spinner"
+                android:hint="Year"
+                android:textColorHint="#c0c0c0"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:onClick=""/>-->
+            <Button
+             android:id="@+id/byear"
+             android:layout_width="80dp"
+             android:layout_height="50dp"
+             android:layout_marginTop="30dp"
+             android:layout_marginLeft="0dp"
+             android:hint="Year"
+             android:textSize="18sp"
+             android:textColorHint="#c0c0c0"
+             android:background="#00000000"/>
+          <!--  <NumberPicker
+                android:id="@+id/byear"
+                android:layout_width="80dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="0dp"
+                android:hint="Year"
+                android:textSize="18sp"
+                android:textColorHint="#c0c0c0"
+                android:background="#00000000"
+               >
 
+            </NumberPicker>-->
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@mipmap/fuel_icon"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"/>
+            <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
+                android:id="@+id/fuel_spinner"
+                android:layout_width="100dp"
+                android:hint="Fuel Type"
+                android:textColorHint="#c0c0c0"
+                android:layout_height="50dp"
+                android:textAlignment="center"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:background="#00000000"/>
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@mipmap/registration_icon"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"/>
+
+            <EditText
+                android:id="@+id/etreg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="5dp"
+                android:hint="Registration no."
+                android:textSize="15sp"
+                android:textAlignment="center"/>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@mipmap/km_icon"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"/>
+
+        <EditText
+            android:id="@+id/etkm"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="5dp"
+            android:hint="KM."
+            android:textSize="15sp"/>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@mipmap/car_address"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="50dp"/>
+
+        <EditText
+            android:id="@+id/etadd"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="5dp"
+            android:hint="Car Address"
+            android:textSize="15sp"/>
+        </LinearLayout>
+    </LinearLayout>
+        <ImageButton
+            android:layout_alignParentBottom="true"
+            android:foregroundGravity="bottom"
+            android:id="@+id/bnext2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="next"
+          android:background="@mipmap/next_button"/>
 </RelativeLayout>
