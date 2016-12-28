@@ -23,7 +23,7 @@ public class Get_WebService extends AsyncTask<Void,String,String>
     ProgressDialog pd;
     HttpURLConnection conn;
     Context c;
-   GetResponse get_response = null;
+   GetResponse get_response = null ;
     private String urlString;
     private String data;
     private String Content;
@@ -32,13 +32,13 @@ public class Get_WebService extends AsyncTask<Void,String,String>
     private int responseCode;
     private String requestMethod;
 
-    Get_WebService(Context context,String urlStr,String parameters,String accesstoken ,String request_type)
+    Get_WebService(Context context,String urlStr,String parameters,String access_token ,String request_type)
     {
         this.c = context;
-        get_response = (GetResponse)  context;
+        get_response = (GetResponse) context;
         urlString = urlStr;
         this.data = parameters;
-        this.accessToken = accesstoken;
+        this.accessToken = access_token;
         this.requestMethod = request_type;
     }
 
@@ -115,7 +115,7 @@ public class Get_WebService extends AsyncTask<Void,String,String>
         //System.out.println("onPostExecute  "+result);
 
 
-        get_response.getService(result,responseCode);
+        get_response.getService(Content,responseCode);
 
     }
 

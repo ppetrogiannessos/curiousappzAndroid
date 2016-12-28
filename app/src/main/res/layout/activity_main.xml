@@ -5,12 +5,14 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:configChanges="orientation|screenSize"
     android:background="#ffffff"
     tools:context="com.curiousappz.www.carky_test.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:configChanges="orientation|screenSize"
         android:orientation="horizontal">
 
         <ImageButton
@@ -19,10 +21,7 @@
             android:background="@mipmap/home_icon"
             android:layout_margin="10dp"
             android:layout_weight="1"
-
             />
-
-
         <ImageView
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -39,22 +38,23 @@
             android:layout_weight="1"/>
     </LinearLayout>
     <LinearLayout
-        android:layout_marginTop="50dp"
-        android:layout_height="90dp"
+        android:layout_marginTop="40dp"
+        android:layout_height="85dp"
         android:layout_width="match_parent"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        android:configChanges="orientation|screenSize"
        >
-
-       <ImageView
+        <ImageView
            android:layout_width="match_parent"
            android:layout_height="80dp"
            android:background="@mipmap/flow_img"/>
         </LinearLayout>
 
     <LinearLayout
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="115dp"
         android:paddingLeft="20dp"
+        android:configChanges="orientation|screenSize"
         android:paddingRight="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,11 +69,10 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:text="Personal Details"/>
-
-
         <LinearLayout
     android:layout_width="match_parent"
     android:orientation="horizontal"
+            android:configChanges="orientation|screenSize"
     android:layout_height="wrap_content">
         <EditText
             android:layout_weight="1"
@@ -82,56 +81,72 @@
             android:textColorHint="#c0c0c0"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="10dp"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:imeOptions="actionNext"/>
         <EditText
 
             android:id="@+id/etSurname"
             android:hint="Surname"
             android:textColorHint="#c0c0c0"
             android:layout_width="0dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:imeOptions="actionNext"/>
 </LinearLayout>
         <EditText
             android:id="@+id/etAddress"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:hint="Address"
             android:textColorHint="#c0c0c0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:imeOptions="actionNext"/>
         <EditText
             android:id="@+id/etEmail"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:hint="Email"
             android:textColorHint="#c0c0c0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:imeOptions="actionNext"/>
+        <EditText
+            android:id="@+id/etPass"
+            android:hint="Password"
+            android:layout_marginTop="5dp"
+            android:textColorHint="#c0c0c0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:inputType="textPassword"
+            android:imeOptions="actionNext"/>
         <EditText
             android:id="@+id/etCPass"
             android:hint="Confirm Password"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:textColorHint="#c0c0c0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:imeOptions="actionNext"/>
         <EditText
             android:id="@+id/etPhone"
             android:hint="Phone Number"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:textColorHint="#c0c0c0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:inputType="textPassword" />
+            android:inputType="phone" />
+
     </LinearLayout>
     <ImageButton
         android:layout_alignParentBottom="true"
@@ -140,5 +155,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="next"
-        android:background="@mipmap/next_button"/>
+        android:background="@mipmap/next_button"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        />
 </RelativeLayout>

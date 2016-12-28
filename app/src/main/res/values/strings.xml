@@ -17,18 +17,12 @@
     </string-array>
 
     <string-array name="transmission_array">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
+        <item>Automatic-1</item>
+        <item>Manual-2</item>
     </string-array>
-    <string-array name="year_array">
-        <item>Fiat</item>
-        <item>BMW</item>
-        <item>Maruti</item>
-    </string-array>
-
     <string-array name="fuel_array">
-        <item>1</item>
-        <item>2</item>
+        <item>Petrol-1</item>
+        <item>Diesel-2</item>
+        <item>Gas-3</item>
     </string-array>
 </resources>

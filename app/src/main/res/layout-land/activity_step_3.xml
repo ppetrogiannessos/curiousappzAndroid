@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:id="@+id/activity_step_3"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="#ffffff"
     tools:context="com.curiousappz.www.carky_test.Step_3">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:configChanges="orientation|screenSize"
         android:orientation="horizontal">
 
         <ImageButton
@@ -25,7 +27,7 @@
             android:layout_gravity="center"
             android:padding="12dp"
             android:src="@mipmap/carky_logo"
-            android:layout_weight="6"
+            android:layout_weight="10"
             />
         <ImageButton
             android:layout_width="0dp"
@@ -34,25 +36,25 @@
             android:background="@mipmap/route_icon"
             android:layout_weight="1"/>
     </LinearLayout>
-
     <LinearLayout
         android:layout_marginTop="10dp"
-        android:layout_height="90dp"
+        android:layout_height="70dp"
         android:layout_width="match_parent"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+        android:configChanges="orientation|screenSize"
         >
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_width="400dp"
+            android:layout_height="70dp"
             android:background="@mipmap/flow_img_car"/>
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="0dp"
         android:orientation="vertical"
         android:background="#eeeeee">
         <TextView
@@ -61,75 +63,54 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:textColor="#333333"
-            android:textSize="17sp"
+            android:textSize="12sp"
             android:layout_marginTop="15dp"
             android:text="Upload Picture Of Your Car Following The Below Guide"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <ImageButton
-                android:scaleType="fitXY"
-                android:id="@+id/side"
                 android:layout_width="120dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp"
                 android:background="@mipmap/side"/>
             <ImageButton
-                android:scaleType="fitXY"
-                android:id="@+id/front_side"
                 android:layout_width="120dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
                 android:background="@mipmap/front_side"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
             <ImageButton
-                android:scaleType="fitXY"
-                android:id="@+id/three_quaters"
                 android:layout_width="120dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
                 android:background="@mipmap/three_quaters"/>
             <ImageButton
-                android:scaleType="fitXY"
-                android:id="@+id/interior"
                 android:layout_width="120dp"
                 android:layout_height="100dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
                 android:background="@mipmap/interior"/>
-
         </LinearLayout>
-
         <TextView
             android:id="@+id/tvforgetlink"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="320dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="280dp"
             android:background="#00000000"
             android:text="Skip"
             android:textSize="15sp"
             android:textColor="#c0c0c0"
             android:textStyle="bold" />
         <ImageButton
-            android:layout_alignParentBottom="true"
-            android:foregroundGravity="bottom"
             android:id="@+id/bnext3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@mipmap/next_button"
-            android:scaleType="fitCenter"
-            android:layout_marginTop="20dp"
-            android:adjustViewBounds="true" />
+            android:onClick="next"
+            android:layout_gravity="center"
+            android:background="@mipmap/next_button"/>
     </LinearLayout>
-
-
 </LinearLayout>
-
