@@ -3,6 +3,7 @@ package com.curiousappz.www.carky_test;
 /**
  * Created by caz1 on 28/12/16.
  */
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -53,7 +54,8 @@ public class FileUploader {
 
     /**
      * Adds a form field to the request
-     * @param name field name
+     *
+     * @param name  field name
      * @param value field value
      */
     public void addFormField(String name, String value) {
@@ -69,7 +71,8 @@ public class FileUploader {
 
     /**
      * Adds a upload file section to the request
-     * @param fieldName name attribute in <input type="file" name="..." />
+     *
+     * @param fieldName  name attribute in <input type="file" name="..." />
      * @param uploadFile a File to be uploaded
      * @throws IOException
      */
@@ -104,7 +107,8 @@ public class FileUploader {
 
     /**
      * Adds a header field to the request.
-     * @param name - name of the header field
+     *
+     * @param name  - name of the header field
      * @param value - value of the header field
      */
     public void addHeaderField(String name, String value) {
@@ -114,6 +118,7 @@ public class FileUploader {
 
     /**
      * Completes the request and receives response from the server.
+     *
      * @return a list of Strings as response in case the server returned
      * status OK, otherwise an exception is thrown.
      * @throws IOException

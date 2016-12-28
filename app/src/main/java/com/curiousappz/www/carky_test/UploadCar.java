@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
@@ -13,7 +12,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -21,7 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Step_3 extends Activity implements View.OnClickListener
+public class UploadCar extends Activity implements View.OnClickListener
 {
     /*TextView tvskip;
 
@@ -29,7 +27,7 @@ public class Step_3 extends Activity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_step_3);
+        setContentView(R.layout.activity_upload_car);
 
         tvskip=(TextView)findViewById(R.id.tvskip);
         tvskip.setOnClickListener(this);
@@ -45,13 +43,13 @@ public class Step_3 extends Activity implements View.OnClickListener
         {
             case R.id.tvskip :
             {
-                Intent intent = new Intent(this, Step_4.class);
+                Intent intent = new Intent(this, Terms.class);
                 startActivity(intent);
                 break;
             }
             case R.id.bnext3 :
             {
-                Intent intent = new Intent(this, Step_4.class);
+                Intent intent = new Intent(this, Terms.class);
                 startActivity(intent);
                 break;
             }
@@ -85,7 +83,7 @@ public class Step_3 extends Activity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_step_3);
+        setContentView(R.layout.activity_upload_car);
 
         skip = (TextView) findViewById(R.id.tvforgetlink);
         side = (ImageButton) findViewById(R.id.side);
@@ -123,14 +121,14 @@ public class Step_3 extends Activity implements View.OnClickListener
     }
 
     private void next4Intent() {
-        Intent i = new Intent(Step_3.this, Step_4.class);
+        Intent i = new Intent(UploadCar.this, Terms.class);
         uploadFile(imgPaths);
         startActivity(i);
 
     }
 
     private void skipIntent() {
-        Intent i = new Intent(Step_3.this, Step_4.class);
+        Intent i = new Intent(UploadCar.this, Terms.class);
         startActivity(i);
 
     }
@@ -345,7 +343,7 @@ public class Step_3 extends Activity implements View.OnClickListener
                 showFileinterior();
                 break;
          /*   case R.id.bnext3 :
-                Intent intent = new Intent(this, Step_4.class);
+                Intent intent = new Intent(this, Terms.class);
                 startActivity(intent);
                 break;*/
 

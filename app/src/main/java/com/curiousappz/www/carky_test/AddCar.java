@@ -1,7 +1,6 @@
 package com.curiousappz.www.carky_test;
 
 import android.app.Activity;
-import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,8 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -28,9 +25,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import static java.net.Proxy.Type.HTTP;
-
-public class Step_2 extends Activity implements AdapterView.OnItemSelectedListener,View.OnClickListener,GetResponse,AsyncResponse
+public class AddCar extends Activity implements AdapterView.OnItemSelectedListener,View.OnClickListener,GetResponse,AsyncResponse
 {
     ArrayList<String> makelist=new ArrayList<>();
     ArrayList<String> modellist = new ArrayList<>();
@@ -52,7 +47,7 @@ public class Step_2 extends Activity implements AdapterView.OnItemSelectedListen
     @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_step_2);
+            setContentView(R.layout.activity_add_car);
        // carDetails();
         carDetails();
 
@@ -206,7 +201,7 @@ public class Step_2 extends Activity implements AdapterView.OnItemSelectedListen
             fuel_spinner.setAdapter(adapter);
               System.out.println("FuelList : " + fuel_list);
 /*
-            Intent i = new Intent(this, Step_3.class);
+            Intent i = new Intent(this, UploadCar.class);
            startActivity(i);*/
          //   Toast.makeText(this,"Successfully Registerd" ,Toast.LENGTH_LONG).show();
         }
@@ -336,14 +331,14 @@ public class Step_2 extends Activity implements AdapterView.OnItemSelectedListen
         if (responsecode == 200)
         {
             Log.i("clicks", "You Clicked step2 button");
-            Intent i = new Intent(this, Step_3.class);
+            Intent i = new Intent(this, UploadCar.class);
             startActivity(i);
             Toast.makeText(this,"Successfully Registerd" ,Toast.LENGTH_LONG).show();
         }
 
         else if (responsecode==500)
         {
-            Intent i = new Intent(this, Step_3.class);
+            Intent i = new Intent(this, UploadCar.class);
             startActivity(i);
             Toast.makeText(this,"Car Added" ,Toast.LENGTH_LONG).show();
         }

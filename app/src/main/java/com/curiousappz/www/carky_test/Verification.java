@@ -7,17 +7,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 
 public class Verification extends Activity implements View.OnClickListener, AsyncResponse {
 
@@ -27,9 +25,9 @@ public class Verification extends Activity implements View.OnClickListener, Asyn
     SharedPreferences.Editor editor;
     String access_token;
     String resUrl;
-    String o1 ,o2,o3,o4,o5,o6;
+    String o1, o2, o3, o4, o5, o6;
     String otpverify;
-    String otp;
+    String otp,phoneno;
 
 
     @Override
@@ -43,11 +41,18 @@ public class Verification extends Activity implements View.OnClickListener, Asyn
         et4 = (EditText) findViewById(R.id.et4);
         et5 = (EditText) findViewById(R.id.et5);
         et6 = (EditText) findViewById(R.id.et6);
+        TextView phone_no = (TextView)findViewById(R.id.tvphone);
 
         botp = (Button) findViewById(R.id.botp);
         botp.setOnClickListener(this);
         btnresend = (Button) findViewById(R.id.bresend);
         btnresend.setOnClickListener(this);
+
+        sharedPreferences = getSharedPreferences("Register", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        phoneno = sharedPreferences.getString("PhoneNumber", "null");
+        phone_no.setText("Enter The Code Send To : "+phoneno);
 
 
         et1.setOnKeyListener(new View.OnKeyListener() {
@@ -56,10 +61,9 @@ public class Verification extends Activity implements View.OnClickListener, Asyn
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
                 if (v.getId() == et1.getId()) {
-                    if (et1.getText().toString().length() == 1)
-                    {
+                    if (et1.getText().toString().length() == 1) {
 
-                         o1 =et1.getText().toString();
+                        o1 = et1.getText().toString();
                         System.out.println(o1);
                         et2.requestFocus();
                     }
@@ -77,7 +81,7 @@ public class Verification extends Activity implements View.OnClickListener, Asyn
 
                 if (v.getId() == et2.getId()) {
                     if (et2.getText().length() == 1) {
-                        o2 =et2.getText().toString();
+                        o2 = et2.getText().toString();
                         System.out.println(o2);
                         et3.requestFocus();
 
@@ -95,7 +99,7 @@ public class Verification extends Activity implements View.OnClickListener, Asyn
 
                 if (v.getId() == et3.getId()) {
                     if (et3.getText().toString().length() == 1) {
-                        o3 =et3.getText().toString();
+                        o3 = et3.getText().toString();
                         System.out.println(o3);
                         et4.requestFocus();
                     }
@@ -112,7 +116,7 @@ public class Verification extends Activity implements View.OnClickListener, Asyn
 
                 if (v.getId() == et4.getId()) {
                     if (et4.getText().toString().length() == 1) {
-                        o4=et4.getText().toString();
+                        o4 = et4.getText().toString();
                         System.out.println(o4);
                         et5.requestFocus();
                     }
@@ -129,7 +133,7 @@ public class Verification extends Activity implements View.OnClickListener, Asyn
 
                 if (v.getId() == et5.getId()) {
                     if (et5.getText().toString().length() == 1) {
-                        o5 =et5.getText().toString();
+                        o5 = et5.getText().toString();
                         System.out.println(o5);
                         et6.requestFocus();
                     }
@@ -141,49 +145,9 @@ public class Verification extends Activity implements View.OnClickListener, Asyn
 
     }
 
-
-
- // @Override
-  //  public void serviceResponse(String result, int responsecode) {
-
-/*
-
-        System.out.println(resUrl);
-        if (responsecode == 200 && resUrl.contains("token")) {
-            sharedPreferences = getSharedPreferences("Verify", Context.MODE_PRIVATE);
-            editor = sharedPreferences.edit();
-            try {
-
-                JSONObject  json_result = new JSONObject(result);
-                access_token = (String) json_result.get("access_token");
-                System.out.println("response access token " + access_token);
-                editor.putString("access_token", access_token);
-                editor.commit();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            Intent i = new Intent(this, Step_2.class);
-            startActivity(i);
-            Toast.makeText(this, "Successfully Registerd", Toast.LENGTH_LONG).show();
-        } else if (responsecode ==200 && resUrl.contains("SendPhoneNumberConfirmation")) {
-
-
-            System.out.println(result);
-
-
-        } else {
-            Toast.makeText(this, " Registeration failed", Toast.LENGTH_LONG).show();
-        }
-*/
-
- //   }
-
-
     @Override
-    public void serviceResponse(String result, int responsecode, String content)
-    {
-        otpverify=result;
+    public void serviceResponse(String result, int responsecode, String content) {
+        otpverify = result;
         System.out.println("server otp : " + otpverify);
 
         System.out.println(resUrl);
@@ -193,8 +157,7 @@ public class Verification extends Activity implements View.OnClickListener, Asyn
             try {
 
 
-
-                JSONObject  json_result = new JSONObject(result);
+                JSONObject json_result = new JSONObject(result);
                 access_token = (String) json_result.get("access_token");
                 System.out.println("response access token " + access_token);
                 editor.putString("access_token", access_token);
@@ -203,10 +166,10 @@ public class Verification extends Activity implements View.OnClickListener, Asyn
                 e.printStackTrace();
             }
 
-            Intent i = new Intent(this, Step_2.class);
+            Intent i = new Intent(this, AddCar.class);
             startActivity(i);
             Toast.makeText(this, "Successfully Registerd", Toast.LENGTH_LONG).show();
-        } else if (responsecode ==200 && resUrl.contains("SendPhoneNumberConfirmation")) {
+        } else if (responsecode == 200 && resUrl.contains("SendPhoneNumberConfirmation")) {
 
 
             System.out.println(result);
@@ -218,37 +181,45 @@ public class Verification extends Activity implements View.OnClickListener, Asyn
 
 
     }
+
     @Override
     public void onClick(View v)
 
     {
 
-        if (v.getId()==R.id.botp)
-        {
+
+        if (v.getId() == R.id.botp) {
+
+            // nextScreen2();
 
             sharedPreferences = getSharedPreferences("Register", Context.MODE_PRIVATE);
             editor = sharedPreferences.edit();
 
-           otpverify =  sharedPreferences.getString("otp_res" , "null");
-            o6=et6.getText().toString();
+            otpverify = sharedPreferences.getString("otp_res", "null");
+            o6 = et6.getText().toString();
             System.out.println(o6);
 
-            otp = (o1+o2+o3+o4+o5+o6);
+            otp = (o1 + o2 + o3 + o4 + o5 + o6);
 
             System.out.println("server otp : " + otpverify);
             System.out.println(" otp : " + otp);
 
-            if (otpverify.contains(otp))
-            {
-                Intent i = new Intent(this, Step_2.class);
+            if (otpverify.contains(otp)) {
+                Intent i = new Intent(this, AddCar.class);
                 startActivity(i);
 
-                Toast.makeText(this,"correct otp",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "correct otp", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Incorrect otp", Toast.LENGTH_SHORT).show();
             }
-            else {
-                Toast.makeText(this,"Incorrect otp",Toast.LENGTH_SHORT).show();
-            }
-        }
 
+        }
     }
+/*
+    void nextScreen2()
+    {
+        Intent i = new Intent(this, AddCar.class);
+        startActivity(i);
+
+    }*/
 }

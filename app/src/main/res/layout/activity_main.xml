@@ -156,7 +156,7 @@
         android:layout_height="wrap_content"
         android:onClick="next"
         android:background="@mipmap/next_button"
-        android:scaleType="fitCenter"
+        android:scaleType="center"
         android:adjustViewBounds="true"
         />
 </RelativeLayout>

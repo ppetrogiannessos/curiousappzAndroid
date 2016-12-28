@@ -120,13 +120,14 @@
         android:layout_alignParentStart="true"
         android:weightSum="1">
         <TextView
+            android:id="@+id/tvphone"
             android:layout_marginTop="100dp"
             android:layout_marginLeft="70dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#000000"
             android:textSize="13sp"
-            android:text="Enter The Code Send To +30 693 547 6981"/>
+            android:text="Enter The Code Send To"/>
 
         <Button
             android:id="@+id/bresend"

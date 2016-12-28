@@ -23,9 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Step_2" />
-        <activity android:name=".Step_3" />
-        <activity android:name=".Step_4" />
+        <activity android:name=".AddCar" />
+        <activity android:name=".UploadCar" />
+        <activity android:name=".Terms" />
         <activity
             android:name=".Verification"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->

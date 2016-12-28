@@ -19,16 +19,15 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-public class MainActivity extends Activity implements View.OnClickListener,AsyncResponse {
+public class MainActivity extends Activity implements View.OnClickListener, AsyncResponse {
 
     ImageButton btnnext;
-    EditText name,surname,address,email,password,phone,cpassword;
+    EditText name, surname, address, email, password, phone, cpassword;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-    String namestr,surnamestr,passwordstr,cpasswordstr,emailstr,phonestr,addstr;
+    String namestr, surnamestr, passwordstr, cpasswordstr, emailstr, phonestr, addstr;
     String access_token;
     String resUrl;
-
 
 
     @Override
@@ -36,83 +35,68 @@ public class MainActivity extends Activity implements View.OnClickListener,Async
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        name=(EditText)findViewById(R.id.etName);
-        surname=(EditText)findViewById(R.id.etSurname);
-        address=(EditText)findViewById(R.id.etAddress);
-        email=(EditText)findViewById(R.id.etEmail);
-        password=(EditText)findViewById(R.id.etPass);
-        cpassword =(EditText)findViewById(R.id.etCPass);
-        phone=(EditText)findViewById(R.id.etPhone);
+        name = (EditText) findViewById(R.id.etName);
+        surname = (EditText) findViewById(R.id.etSurname);
+        address = (EditText) findViewById(R.id.etAddress);
+        email = (EditText) findViewById(R.id.etEmail);
+        password = (EditText) findViewById(R.id.etPass);
+        cpassword = (EditText) findViewById(R.id.etCPass);
+        phone = (EditText) findViewById(R.id.etPhone);
 
         btnnext = (ImageButton) findViewById(R.id.bnext);
-       btnnext.setOnClickListener(this);
-/*
-        if(getResources().getDisplayMetrics().widthPixels>getResources().getDisplayMetrics().
-                heightPixels)
-        {
-            Toast.makeText(this,"Screen switched to Landscape mode",Toast.LENGTH_SHORT).show();
-        }
-        else
-        {
-            Toast.makeText(this,"Screen switched to Portrait mode",Toast.LENGTH_SHORT).show();
-        }*/
+        btnnext.setOnClickListener(this);
+
     }
-    public void onClick(View v)
-    {
-        /*if(name.getText().length()>0)
-        {
+
+    public void onClick(View v) {
+
+        // nextSCreen();
+
+        if (name.getText().length() > 0) {
             namestr = name.getText().toString();
-        }
-        else
-        {
-            Toast.makeText(this,"Name Required ",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Name Required ", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-    if(surname.getText().length()>0) {
-        surnamestr = surname.getText().toString();
-    }
-    else
-    {
-        Toast.makeText(this,"Name Required ",Toast.LENGTH_SHORT).show();
-    }
-        if(email.getText().length()>0) {
+        if (surname.getText().length() > 0) {
+            surnamestr = surname.getText().toString();
+        } else {
+            Toast.makeText(this, "Name Required ", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (email.getText().length() > 0) {
             emailstr = email.getText().toString();
-        }
-        else
-        {
-            Toast.makeText(this,"Name Required ",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Name Required ", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-        if(password.getText().length()>0) {
+        if (password.getText().length() > 0) {
             passwordstr = password.getText().toString();
+        } else {
+            Toast.makeText(this, "Name Required ", Toast.LENGTH_SHORT).show();
+            return;
         }
-        else
-        {
-            Toast.makeText(this,"Name Required ",Toast.LENGTH_SHORT).show();
-        }
-        if(cpassword.getText().length()>0) {
+        if (cpassword.getText().length() > 0) {
             cpasswordstr = cpassword.getText().toString();
-        }
-        else
-        {
-            Toast.makeText(this,"Confirm password Required ",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Confirm password Required ", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-        if(address.getText().length()>0) {
-        addstr = address.getText().toString();
-    }
-    else
-    {
-        Toast.makeText(this,"Address Required ",Toast.LENGTH_SHORT).show();
-    }
-        if(phone.getText().length()>0) {
+        if (address.getText().length() > 0) {
+            addstr = address.getText().toString();
+        } else {
+            Toast.makeText(this, "Address Required ", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (phone.getText().length() > 0) {
             phonestr = phone.getText().toString();
+        } else {
+            Toast.makeText(this, "Phone no Required ", Toast.LENGTH_SHORT).show();
+            return;
         }
-        else
-        {
-            Toast.makeText(this,"Phone no Required ",Toast.LENGTH_SHORT).show();
-        }*/
-
         try {
             registerUser(namestr, surnamestr, emailstr, passwordstr, cpasswordstr, addstr, phonestr);
         } catch (JSONException e) {
@@ -122,21 +106,8 @@ public class MainActivity extends Activity implements View.OnClickListener,Async
     }
 
 
-
     void registerUser(String username, String surname, String email, String password, String confirmPassword, String address, String contact) throws JSONException {
         String data;
-      JSONObject object = new JSONObject();
-
-        object.put("FirstName" , username);
-        object.put("Surname" , surname);
-        object.put("Password" , password);
-        object.put("ConfirmPassword" ,confirmPassword);
-        object.put("PhoneNumber" ,contact);
-        object.put("Address" , address);
-        object.put("Email" , email);
-
-      // String data1  =  object.toString();
-
 
         try {
             data = URLEncoder.encode("FirstName", "UTF-8") + "=" + username;
@@ -148,7 +119,7 @@ public class MainActivity extends Activity implements View.OnClickListener,Async
             data += "&" + URLEncoder.encode("Email", "UTF-8") + "=" + email;
             resUrl = "Register";
             System.out.println("Parameter data " + data);
-            Post_WebService webService = new Post_WebService(this, "http://carky-app.azurewebsites.net/api/Account/Register", data,"","POST");
+            Post_WebService webService = new Post_WebService(this, "http://carky-app.azurewebsites.net/api/Account/Register", data, "", "POST");
             webService.execute();
         } catch (Exception e) {
             e.printStackTrace();
@@ -158,7 +129,7 @@ public class MainActivity extends Activity implements View.OnClickListener,Async
 
     void loginUser(String username, String password, String grant_type) {
         String data;
-        System.out.println("username" + username + "passsword" + password );
+        System.out.println("username" + username + "passsword" + password);
         try {
             data = URLEncoder.encode("username", "UTF-8") + "=" + username;
             data += "&" + URLEncoder.encode("password", "UTF-8") + "=" + password;
@@ -170,9 +141,6 @@ public class MainActivity extends Activity implements View.OnClickListener,Async
             Post_WebService webService = new Post_WebService(this, "http://carky-app.azurewebsites.net/token", data, "", "POST");
             webService.execute();
 
-        /*    Post_WebService webService2 = new Post_WebService(this, "http://carky-app.azurewebsites.net/api/Account/SendPhoneNumberConfirmation",null,access_token,"POST");
-            webService2.execute();
-            System.out.println("OTP");*/
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -193,13 +161,12 @@ public class MainActivity extends Activity implements View.OnClickListener,Async
     }
 
 
-
     @Override
-    public void serviceResponse(String result, int responsecode, String content)  {
+    public void serviceResponse(String result, int responsecode, String content) {
 
 
         System.out.println(resUrl);
-        if(responsecode == 200 && resUrl.contains("Register")){
+        if (responsecode == 200 && resUrl.contains("Register")) {
 
             sharedPreferences = getSharedPreferences("Register", Context.MODE_PRIVATE);
             editor = sharedPreferences.edit();
@@ -210,46 +177,22 @@ public class MainActivity extends Activity implements View.OnClickListener,Async
             editor.putString("Address", addstr);
             editor.putString("Email", emailstr);
             editor.putString("Password", passwordstr);
-            editor.putString("ConfirmPassword",cpasswordstr);
+            editor.putString("ConfirmPassword", cpasswordstr);
             editor.putString("PhoneNumber", phonestr);
 
             editor.commit();
 
             Log.i("clicks", "You Clicked B1");
             loginUser(emailstr, passwordstr, "password");
-            Toast.makeText(this,"Successfully Registerd" ,Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Successfully Registerd", Toast.LENGTH_LONG).show();
 
 
-        }
-       else if(responsecode == 400 && resUrl.contains("Register")){
-
-            sharedPreferences = getSharedPreferences("Register", Context.MODE_PRIVATE);
-            editor = sharedPreferences.edit();
-
-
-            editor.putString("Name", namestr);
-            editor.putString("SurNname", surnamestr);
-            editor.putString("Address", addstr);
-            editor.putString("Email", emailstr);
-            editor.putString("Password", passwordstr);
-            editor.putString("ConfirmPassword",cpasswordstr);
-            editor.putString("PhoneNumber", phonestr);
-
-            editor.commit();
-
-            Log.i("clicks", "You Clicked B2");
-            loginUser("test1@test.com", "123456abc", "password");
-           // Toast.makeText(this,"Successfully Registerd" ,Toast.LENGTH_LONG).show();
-
-
-        }
-
-        else if (responsecode == 200 && resUrl.contains("token")) {
+        } else if (responsecode == 200 && resUrl.contains("token")) {
             sharedPreferences = getSharedPreferences("Register", Context.MODE_PRIVATE);
             editor = sharedPreferences.edit();
             try {
 
-                JSONObject  json_result = new JSONObject(result);
+                JSONObject json_result = new JSONObject(result);
                 access_token = (String) json_result.get("access_token");
                 System.out.println("response access token " + access_token);
                 editor.putString("access_token", access_token);
@@ -259,73 +202,25 @@ public class MainActivity extends Activity implements View.OnClickListener,Async
             }
 
             sendPhoneNnumberConfirmation();
-           // Intent i = new Intent(this, Step_2.class);
+            // Intent i = new Intent(this, AddCar.class);
             //startActivity(i);
-         //   Toast.makeText(this, "Successfully Registerd", Toast.LENGTH_LONG).show();
-        }
-        else if (responsecode ==200 && resUrl.contains("SendPhoneNumberConfirmation")) {
+            //   Toast.makeText(this, "Successfully Registerd", Toast.LENGTH_LONG).show();
+        } else if (responsecode == 200 && resUrl.contains("SendPhoneNumberConfirmation")) {
 
 
             sharedPreferences = getSharedPreferences("Register", Context.MODE_PRIVATE);
             editor = sharedPreferences.edit();
 
-                String otp_res = result.toString();
-                System.out.println("response otp_res " + otp_res);
-                editor.putString("otp_res", otp_res);
-                editor.commit();
-                System.out.println(result);
-                Intent i = new Intent(this, Verification.class);
-                startActivity(i);
-
-
-
-
-
+            String otp_res = result.toString();
+            System.out.println("response otp_res " + otp_res);
+            editor.putString("otp_res", otp_res);
+            editor.commit();
+            System.out.println(result);
+            Intent i = new Intent(this, Verification.class);
+            startActivity(i);
         } else {
             Toast.makeText(this, " Registeration failed", Toast.LENGTH_LONG).show();
         }
 
     }
-
-
-    /*@Override
-    public void serviceResponse(String result,int responsecode)
-    {
-if (responsecode == 200)
-
-{
-
-    sharedPreferences = getSharedPreferences("Register", Context.MODE_PRIVATE);
-    editor = sharedPreferences.edit();
-
-
-    editor.putString("Name", namestr);
-    editor.putString("SurNname", surnamestr);
-    editor.putString("Address", addstr);
-    editor.putString("Email", emailstr);
-    editor.putString("Password", passwordstr);
-    editor.putString("ConfirmPassword",cpasswordstr);
-    editor.putString("PhoneNumber", phonestr);
-
-    editor.commit();
-
-    Log.i("clicks", "You Clicked B1");
-    Intent i = new Intent(this, Verification.class);
-    loginUser(emailstr, passwordstr, "password");
-    startActivity(i);
-    Toast.makeText(this,"Successfully Registerd" ,Toast.LENGTH_LONG).show();
-}
-else
-{
-    Intent i = new Intent(this, Verification.class);
-    loginUser("test1@test.com", "123456abc", "password");
-    startActivity(i);
-    Toast.makeText(this,"Successfully Registerd" ,Toast.LENGTH_LONG).show();
-
-    //Toast.makeText(this," Registeration failed" ,Toast.LENGTH_LONG).show();
-}
-
-    }*/
-
-
 }
